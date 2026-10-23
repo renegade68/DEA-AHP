@@ -1,6 +1,6 @@
 *! version 0.1.1 24oct2026 | Monte Carlo sensitivity for ahpdea
 *! Code author: Lee, Choonjoo
-*! Methodological basis: Saaty (1987); Lee (2026, forthcoming);
+*! Methodological basis: Saaty (1987); Lee (forthcoming);
 *!                       judgment-perturbation sensitivity wrapper
 program define ahpdeasim, rclass
     version 16.0

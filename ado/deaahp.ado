@@ -1,7 +1,7 @@
 *! version 0.2.1 24oct2026 | DEA-first AHP tie and pairwise methods
 *! Code author: Lee, Choonjoo
 *! Methodological basis: Saaty (1987); Sinuany-Stern, Mehrez, and Hadad (2000);
-*!                       DEA v2.0 in Lee (2026, forthcoming)
+*!                       DEA v2.0 in Lee (forthcoming)
 program define deaahp, rclass
     version 16.0
     local cmdline `"`0'"'

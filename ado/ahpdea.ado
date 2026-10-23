@@ -1,7 +1,7 @@
 *! version 0.3.1 24oct2026 | AHP-derived assurance-region DEA
 *! Code author: Lee, Choonjoo
 *! Methodological basis: Saaty (1987); Takamura and Tone (2003);
-*!                       DEA v2.0 in Lee (2026, forthcoming)
+*!                       DEA v2.0 in Lee (forthcoming)
 program define ahpdea, rclass
     version 16.0
     local cmdline `"`0'"'

@@ -154,8 +154,20 @@ tie set, so probabilities need not sum to one.{p_end}
 it is used. {it:Mathematical Modelling} 9(3--5): 161--176.
 {browse "https://doi.org/10.1016/0270-0255(87)90473-8":doi:10.1016/0270-0255(87)90473-8}{p_end}
 
-{phang}Lee, C. 2026. {cmd:dea}: An update and extension to data envelopment
-analysis. Forthcoming in {it:The Stata Journal}.{p_end}
+{pstd}For the DEA implementation, cite both the original software and the
+version-2 update used by this command.{p_end}
+
+{phang}Ji, Y.-B., and C. Lee. 2010. Data envelopment analysis.
+{it:Stata Journal} 10(2): 267-280.
+{browse "https://doi.org/10.1177/1536867X1001000207":doi:10.1177/1536867X1001000207}{p_end}
+
+{phang}Lee, C. Forthcoming. {it:dea: An Update and Extension to Data Envelopment Analysis}.
+Accepted for publication in the
+{browse "https://www.stata-journal.com/":Stata Journal}.{p_end}
+
+{pstd}The latter article describes DEA version 2.0. The
+{browse "https://github.com/renegade68/DEA-Stata":DEA-Stata repository}
+maintains the software and subsequent updates.{p_end}
 
 {marker authors}{...}
 {title:Authors}

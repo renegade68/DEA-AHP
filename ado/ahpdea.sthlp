@@ -253,8 +253,20 @@ Research} 73: 13-34. doi:10.1023/A:1018968909638. Takamura, Y., and K. Tone.
 2003. {it:Socio-Economic Planning Sciences} 37(2): 85-102.
 doi:10.1016/S0038-0121(02)00049-6.{p_end}
 
-{phang}Lee, C. 2026. {cmd:dea}: An update and extension to data envelopment
-analysis. Forthcoming in {it:The Stata Journal}.{p_end}
+{pstd}For the DEA implementation, cite both the original software and the
+version-2 update used by this command.{p_end}
+
+{phang}Ji, Y.-B., and C. Lee. 2010. Data envelopment analysis.
+{it:Stata Journal} 10(2): 267-280.
+{browse "https://doi.org/10.1177/1536867X1001000207":doi:10.1177/1536867X1001000207}{p_end}
+
+{phang}Lee, C. Forthcoming. {it:dea: An Update and Extension to Data Envelopment Analysis}.
+Accepted for publication in the
+{browse "https://www.stata-journal.com/":Stata Journal}.{p_end}
+
+{pstd}The latter article describes DEA version 2.0. The
+{browse "https://github.com/renegade68/DEA-Stata":DEA-Stata repository}
+maintains the software and subsequent updates.{p_end}
 
 {marker authors}{...}
 {title:Authors}

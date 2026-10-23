@@ -1,6 +1,6 @@
 /* Code author: Lee, Choonjoo.
    Methodological basis: Takamura and Tone (2003), with DEA v2.0 described
-   in Lee (2026, forthcoming). */
+   in Lee (forthcoming). */
 version 16.0
 
 capture mata: mata drop ahpdea_ar__probe()

@@ -118,9 +118,19 @@ used. Complete journal details and a DOI will be added when available.
 The manuscript authors are Miyoung Lee and Choonjoo Lee; the code author
 identified in the source is Choonjoo Lee.
 
-The DEA dependency has its own attribution and license, including Ji and Lee
-(2010), *Data envelopment analysis*, and Lee's forthcoming DEA update. See
-[DEA-Stata](https://github.com/renegade68/DEA-Stata) for those details.
+For the DEA component, cite both the original Stata implementation and the
+version-2 update used by these hybrid commands:
+
+> Ji, Y.-B., and C. Lee. 2010. *Data envelopment analysis*.
+> **Stata Journal** 10(2): 267–280.
+> [doi:10.1177/1536867X1001000207](https://doi.org/10.1177/1536867X1001000207)
+
+> Lee, C. Forthcoming. *dea: An Update and Extension to Data Envelopment Analysis*.
+> Accepted for publication in the [Stata Journal](https://www.stata-journal.com/).
+
+The second article documents DEA version 2.0. See
+[DEA-Stata](https://github.com/renegade68/DEA-Stata) for the author-maintained
+software, its subsequent updates, attribution, and separate license.
 Manuscripts, publisher PDFs, private data, and development outputs are not
 included in this software repository.
 

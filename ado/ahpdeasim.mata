@@ -1,6 +1,6 @@
 /* Code author: Lee, Choonjoo.
    Judgment-perturbation sensitivity routines for the Saaty (1987) AHP and
-   Lee (2026, forthcoming) DEA bridge. */
+   Lee (forthcoming) DEA bridge. */
 version 16.0
 
 capture mata: mata drop ahpdeasim__perturb()
