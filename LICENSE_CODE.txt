@@ -1,0 +1,52 @@
+Academic Free License 3.0
+=========================
+
+Copyright © 2026 Choonjoo Lee and the identified contributors.
+
+Licensed under the Academic Free License version 3.0.
+SPDX-License-Identifier: AFL-3.0
+
+This notice covers the Stata .ado and .sthlp files, the six .mata files required
+at runtime, and the accompanying software documentation in this repository.
+The complete, unmodified license is provided in LICENSE. Preserve copyright,
+author, contributor, and reference notices in the individual files.
+Research and education are intended uses; they do not restrict other uses
+permitted by AFL-3.0. No additional non-commercial-use restriction is imposed
+by this notice.
+
+The separate DEA-Stata dependency retains its own license and attribution.
+It is not bundled with this repository.
+
+Article manuscripts, article PDFs, article LaTeX sources, and publisher
+versions are not included and are not covered by this software license.
+
+Attribution
+-----------
+
+This repository accompanies the following manuscript and includes subsequent
+author-maintained software improvements:
+
+Lee, M., and C. Lee. 2026. Integrating analytic hierarchy process and data
+envelopment analysis in Stata. Manuscript under review at the Stata Journal.
+Stata Journal: https://www.stata-journal.com/
+
+Manuscript authors: Miyoung Lee and Choonjoo Lee.
+Code author: Choonjoo Lee.
+
+The recursive hierarchy and ANP supermatrix commands were added after the
+August 2026 submission. The manuscript's review status does not imply journal
+approval of these later software changes. The README and command help files
+define the implemented models, their assumptions, and their limitations.
+
+Retain this attribution notice when redistributing the software and identify
+modifications as required by AFL-3.0. In research using this software, cite
+the manuscript, the relevant command-specific methodological references,
+and the software commit used. Complete journal details and a DOI will be
+added when available.
+
+Warranty and liability
+----------------------
+
+The warranty provisions and limitations of liability in Sections 7 and 8
+of AFL-3.0 control. This notice does not modify the license text or exclude
+liability that cannot lawfully be excluded.
