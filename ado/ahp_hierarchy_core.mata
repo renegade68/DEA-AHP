@@ -10,7 +10,7 @@ capture mata: mata drop ahph__check_names()
 capture mata: mata drop ahph__run()
 mata:
 
-real scalar ahph__version() return(5)
+real scalar ahph__version() return(6)
 
 string colvector ahph__uniq(string colvector x)
 {
@@ -152,10 +152,10 @@ void ahph__run(
             ahp__fail(sprintf("structure parent %s has no node declaration",parents[i]))
         for (i=1;i<=rows(snode);i++) {
             idx=selectindex((snode:==snode[i]) :& (sparent:==sparent[i]))
-            if (rows(idx)>1) ahp__fail(sprintf("duplicate structure edge %s -> %s",sparent[i],snode[i]))
+            if (length(idx)>1) ahp__fail(sprintf("duplicate structure edge %s -> %s",sparent[i],snode[i]))
             if (sparent[i]!="") {
                 idx=selectindex((sparent:==sparent[i]) :& (sorder:==sorder[i]))
-                if (rows(idx)>1) ahp__fail(sprintf("structure order must be unique within parent %s",sparent[i]))
+                if (length(idx)>1) ahp__fail(sprintf("structure order must be unique within parent %s",sparent[i]))
             }
             if (stype[i]!="") {
                 if (sparent[i]=="" & stype[i]!="goal") ahp__fail("the structure root must have type goal")
@@ -168,9 +168,9 @@ void ahph__run(
         for (i=1;i<=rows(parent);i++) {
             if (!ahph__pos(parents,parent[i])) ahp__fail(sprintf("comparison parent %s is absent from structure()",parent[i]))
             idx=selectindex((sparent:==parent[i]) :& (snode:==left[i]))
-            if (!rows(idx)) ahp__fail(sprintf("child %s is not declared under parent %s",left[i],parent[i]))
+            if (!length(idx)) ahp__fail(sprintf("child %s is not declared under parent %s",left[i],parent[i]))
             idx=selectindex((sparent:==parent[i]) :& (snode:==right[i]))
-            if (!rows(idx)) ahp__fail(sprintf("child %s is not declared under parent %s",right[i],parent[i]))
+            if (!length(idx)) ahp__fail(sprintf("child %s is not declared under parent %s",right[i],parent[i]))
         }
     }
     ahph__check_names(nodes)
@@ -180,7 +180,7 @@ void ahph__run(
     q=J(1,ne,.)
     for (h=1;h<=ne;h++) {
         idx=selectindex(evaluator:==evaluators[h])
-        if (!rows(idx)) q[h]=1
+        if (!length(idx)) q[h]=1
         else {
             if (max(ew[idx])-min(ew[idx])>tol) ahp__fail("evaluatorweight() must be constant within evaluator")
             q[h]=ew[idx[1]]
@@ -204,7 +204,7 @@ void ahph__run(
         for (j=1;j<=np;j++) {
             idx=(hasstructure ? selectindex((sparent:==parents[j]) :& (snode:==internalchildren[i])) :
                 selectindex((parent:==parents[j]) :& ((left:==internalchildren[i]) :| (right:==internalchildren[i]))))
-            if (rows(idx)>0) k++
+            if (length(idx)>0) k++
         }
         if (k!=1) ahp__fail(sprintf("internal node %s must have exactly one parent",internalchildren[i]))
     }
@@ -258,7 +258,7 @@ void ahph__run(
         if (n<1) ahp__fail(sprintf("parent %s has no children",parents[i]))
         if (n==1) {
             idx=selectindex(parent:==parents[i])
-            if (rows(idx)) ahp__fail(sprintf("unary parent %s must not have comparison rows",parents[i]))
+            if (length(idx)) ahp__fail(sprintf("unary parent %s must not have comparison rows",parents[i]))
             localw=1
             locall=localm=localu=1
             diagnostics[i,.]=(1,ne,1,0,0,1,0)
@@ -274,7 +274,7 @@ void ahph__run(
             A=I(n); seen=J(n,n,0)
             if (judgment!="crisp") AL=AU=I(n)
             idx=selectindex((parent:==parents[i]) :& (evaluator:==evaluators[h]))
-            for (k=1;k<=rows(idx);k++) {
+            for (k=1;k<=length(idx);k++) {
                 obs=idx[k]
                 ii=ahph__pos(children,left[obs]); jj=ahph__pos(children,right[obs])
                 if (ii==0 | jj==0 | ii==jj) ahp__fail("internal comparison-index error")

@@ -21,7 +21,8 @@ define the implemented models and their limitations.
 
 Download or clone this repository. Keep **all files in `ado/` together**,
 including the six `.mata` implementation files and the helper `.ado` files.
-Add that folder to Stata's search path:
+Restart Stata after replacing an existing installation so cached commands are
+reloaded. Add that folder to Stata's search path:
 
 ```stata
 adopath ++ "/your/path/DEA-AHP/ado"
@@ -74,7 +75,7 @@ dataset or example do-file is required.
 | --- | --- | --- | --- |
 | AHP | `ahp` | Reciprocal judgments, eigenvector/geometric-mean priorities, AIJ/AIP group aggregation and consistency diagnostics | [code](ado/ahp.ado) · [help](ado/ahp.sthlp) |
 | Hierarchies | `ahphierarchy` | Recursive long-format hierarchy synthesis; explicit structures; crisp, interval and triangular-fuzzy judgments | [code](ado/ahphierarchy.ado) · [help](ado/ahphierarchy.sthlp) |
-| Networks | `ahpnetwork` | ANP weighted supermatrices and power/Cesaro summaries from supplied local priorities | [code](ado/ahpnetwork.ado) · [help](ado/ahpnetwork.sthlp) |
+| Networks | `ahpnetwork` | ANP weighted supermatrices and power/Cesaro limits, with direct calculation and checked iteration | [code](ado/ahpnetwork.ado) · [help](ado/ahpnetwork.sthlp) |
 | Synthesis | `ahpsynth` | Combine parent and local priorities with path contributions | [code](ado/ahpsynth.ado) · [help](ado/ahpsynth.sthlp) |
 | Contexts | `dahp` | AHP within declared time/state contexts and explicit context pooling | [code](ado/dahp.ado) · [help](ado/dahp.sthlp) |
 | Contexts | `dahpsynth` | Context-dependent criteria with a fixed alternative set | [code](ado/dahpsynth.ado) · [help](ado/dahpsynth.sthlp) |
@@ -86,9 +87,18 @@ dataset or example do-file is required.
 
 `dahp` treats time and state as analyst-defined weighted contexts; it does not
 estimate transition probabilities or an endogenous dynamic process.
-`ahpnetwork` consumes supplied local priorities. Its iterative stopping
-tolerance is not a guaranteed bound on distance to an exact limit; inspect
-sensitivity to iteration settings for slowly converging networks.
+`ahphierarchy` has no fixed number of levels; it requires a rooted hierarchy
+with one parent per internal node and complete pairwise comparisons within
+each comparison group. Terminal alternatives may be shared across criteria.
+`structure()` supports explicit unbalanced hierarchies and single-child nodes.
+
+`ahpnetwork` consumes supplied local priorities. Version 0.2.0 defaults to
+`solver(direct)`, computing closed-class priorities and transient absorption
+without waiting for successive matrix powers to settle. `solver(iterate)`
+also checks distance to that direct reference, preventing a small iterate
+change alone from causing early termination. Periodic closed classes require
+`limit(cesaro)`. Reducible networks use a uniform initial mixture across nodes.
+The help file explains the numerical checks and practical limits.
 
 Interval/fuzzy priority envelopes and Monte Carlo judgment-perturbation ranges
 are not automatically statistical confidence intervals. Numerical verification
@@ -100,7 +110,11 @@ or causal interpretation. Each help file states its model and data contract.
 Individual computational versions are recorded in the `.ado` headers; help
 revisions are dated separately. The October 2026 maintenance changes reject
 missing numerical options, protect the caller's scalar during the DEA API
-check, and make the help examples directly executable. The full Stata test
+check, and make the help examples directly executable. Further fixes support
+single-row comparisons in explicit unary hierarchies and replace ANP's
+change-only stopping rule with class-aware direct calculation and checked
+iteration. Depths through 256 levels and 55 independently computed exact
+rational ANP reference cases were checked locally. The full Stata test
 suite, additional input-validation checks, and the nine actual help examples
 were run locally with Stata/MP 16.1 and the DEA dependency identified above.
 Other Stata binaries and operating systems have not been tested here.

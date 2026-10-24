@@ -1,4 +1,4 @@
-*! version 0.5.1 24oct2026 | data-first recursive AHP hierarchy
+*! version 0.5.2 24oct2026 | data-first recursive AHP hierarchy
 *! Code author: Lee, Choonjoo
 program define ahphierarchy, rclass
     version 16.0

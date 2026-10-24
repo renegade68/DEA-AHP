@@ -33,6 +33,10 @@ diagonals are generated automatically.  Local priorities are estimated at
 each parent and propagated recursively from the unique root to terminal
 alternatives.
 
+{pstd}There is no fixed number of hierarchy levels. Depth is inferred from
+the supplied parent-child relationships. Memory, computation time, and
+floating-point precision still constrain practical problem size.{p_end}
+
 {pstd}{opt structure()} optionally supplies the hierarchy explicitly in a
 Stata frame.  This mode supports unbalanced hierarchies and unary parent
 nodes, which cannot be recovered from pairwise rows alone.  Omitting the
